@@ -9,14 +9,14 @@
 
 ## セットアップ手順
 
-1. Macは、ターミナル、WindowsはターミナルのUbuntuを開き、Desctopに移動し、MySQL用のコンテナリポジトリをクローンします。
+1. Macは、ターミナル、WindowsはターミナルのUbuntuを開き、Desktopに移動し、MySQL用のコンテナリポジトリをクローンします。
 
 **Macのターミナル初期画面**
 
 <img width="573" height="364" alt="スクリーンショット 2025-08-06 12 11 50" src="https://github.com/user-attachments/assets/96b46c81-590c-4099-9e89-2acbe73b5338" />
 
 **WindowsのターミナルのUbuntuの初期画面**
-<スクショ貼りたい>
+/mnt/c/Users/<ユーザー名>
 
 以下のコマンドを実行します。
 Macのデスクトップに移動
@@ -26,7 +26,7 @@ cd Desktop
 
 Windowsのデスクトップに移動
 ```bash
-あとで追加
+cd デスクトップ
 ```
 
 ```bash
@@ -70,7 +70,7 @@ docker exec -it mysql bash
 次に、コンテナ内で以下のコマンドを実行して MySQL にログインします。
 
 ```bash
-mysql -u test_user -p
+mysql -u user -p
 ```
 
 パスワードを求められたら `pass` を入力してください。
