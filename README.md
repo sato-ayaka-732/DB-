@@ -63,8 +63,6 @@ docker compose up -d
  ✔ Container mysql  Running  0.0s 
 ```
 
-<img width="1264" height="724" alt="スクリーンショット 2025-08-06 12 23 02" src="https://github.com/user-attachments/assets/8495973f-ae68-4176-845b-c3f0aa70a938" />
-
 
 3. MySQL に接続する方法
 
