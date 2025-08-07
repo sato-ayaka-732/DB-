@@ -1,12 +1,21 @@
-# データベースの学習をする環境を揃えましょう 
-- 【Windowsの方】[WSLインストール](https://respawn.littleheroes.jp/w/courses/2285/2351/2352/1284?lhsct=content-1284)、[Gitで作業を始める準備](https://respawn.littleheroes.jp/w/courses/2285/2351/2353/1286?lhsct=content-1286)、[GitHubとSSH接続](https://respawn.littleheroes.jp/w/courses/2285/2351/2353/1287?lhsct=content-1287)、[Dockerの設定](https://respawn.littleheroes.jp/w/courses/2285/2351/2354/1288?lhsct=content-1288)を終えていること。
-- 【Macの方】は[Docker Desktop for Macのインストール](https://respawn.littleheroes.jp/w/courses/596/1357/1380/797?lhsct=content-797)、[Gitの導入＞Macにインストール](https://respawn.littleheroes.jp/w/courses/595/640/742/277?lhsct=content-277)、[Gitの使い方](https://respawn.littleheroes.jp/w/courses/595/641)の「GitHubについて」〜「GitHubへSSH接続」までを終えていること。
--  [Docker Composeのインストール](https://respawn.littleheroes.jp/w/courses/596/1356/1375/781?lhsct=content-781)を終えていること。
--  [DBeaverのインストール](https://respawn.littleheroes.jp/w/courses/1977/1978/1979/1031?lhsct=content-1031)を終えていること。
+# 事前準備（学習前に必ず終えておくこと）
+### 1. Windowsの方
+- [WSLのインストール](https://respawn.littleheroes.jp/w/courses/2285/2351/2352/1284?lhsct=content-1284)
+- [Gitで作業を始める準備](https://respawn.littleheroes.jp/w/courses/2285/2351/2353/1286?lhsct=content-1286)
+- [GitHubとSSH接続](https://respawn.littleheroes.jp/w/courses/2285/2351/2353/1287?lhsct=content-1287)
+- [Dockerの設定](https://respawn.littleheroes.jp/w/courses/2285/2351/2354/1288?lhsct=content-1288)
+
+### 2. Macの方
+- [Docker Desktop for Macのインストール](https://respawn.littleheroes.jp/w/courses/596/1357/1380/797?lhsct=content-797)
+- [Gitの導入＞Macにインストール](https://respawn.littleheroes.jp/w/courses/595/640/742/277?lhsct=content-277)
+- [Gitの使い方](https://respawn.littleheroes.jp/w/courses/595/641)の「GitHubについて」〜「GitHubへSSH接続」まで
+- [Docker Composeのインストール](https://respawn.littleheroes.jp/w/courses/596/1356/1375/781?lhsct=content-781)
+
+- [DBeaverのインストール（全員共通）](https://respawn.littleheroes.jp/w/courses/1977/1978/1979/1031?lhsct=content-1031)
 
 # セットアップ手順
 
-1. Macは、ターミナル、WindowsはターミナルのUbuntuを開き、Desktopに移動し、MySQL用のコンテナリポジトリをクローンします。
+1. デスクトップにリポジトリをクローン
 
 **Macのターミナル初期画面　↓**
 
@@ -18,58 +27,54 @@
 /mnt/c/Users/<ユーザー名>
 
 以下のコマンドを実行します。
-Macのデスクトップに移動
+Mac の場合
 ```bash
-cd Desktop
+cd ~/Desktop
 ```
 
-Windowsのデスクトップに移動
+Windows（Ubuntu on WSL）の場合
 ```bash
-cd デスクトップ
+cd ~/デスクトップ
 ```
 
-デスクトップに移動したら、以下を実行します。
-
+デスクトップに移動したら、リポジトリをクローンします。
 ```bash
 git clone git@github.com:pygmalin-info/db-training.git
 cd db-training
 ```
 
-クローンに成功すれば以下のようなメッセージが表示されます。自分のデスクトップ画面にdb-trainingというフォルダがあれば、クローン成功です。
+成功すると以下のようなメッセージが表示されます：
 ```bash
 Cloning into 'db-training'...
-remote: Enumerating objects: 6, done.
-remote: Counting objects: 100% (6/6), done.
-remote: Compressing objects: 100% (5/5), done.
-remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-Receiving objects: 100% (6/6), done.
+remote: Enumerating objects: ...
+...
 ```
 
-2. **Docker Desktop のアプリケーションを起動**して、MySQL コンテナを起動します。
+2. **2. Docker Desktop を起動し、MySQL コンテナを立ち上げ
 
 ```bash
 docker compose up -d
 ```
 
-コンテナの起動に成功すれば、以下のようなメッセージが表示され、	Docker Desktopの画面は以下のようになります。
-```bash
+起動に成功すれば、以下のようなメッセージが表示されます：
 
+```bash
 [+] Running 1/1
- ✔ Container mysql  Running                                                0.0s 
+ ✔ Container mysql  Running  0.0s 
 ```
 
 <img width="1264" height="724" alt="スクリーンショット 2025-08-06 12 23 02" src="https://github.com/user-attachments/assets/8495973f-ae68-4176-845b-c3f0aa70a938" />
 
 
-3. MySQL に接続する場合
+3. MySQL に接続する方法
 
-まず、MySQL コンテナに入ります。
+コンテナに入ります：
 
 ```bash
 docker exec -it mysql bash
 ```
 
-次に、コンテナ内で以下のコマンドを実行して MySQL にログインします。
+MySQLにログインします：
 
 ```bash
 mysql -u user -p
@@ -77,51 +82,55 @@ mysql -u user -p
 
 パスワードを求められたら `pass` を入力してください。
 
-以下のような画面が表示されます。
+
+ログイン成功時の画面：
 ```bash
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 9
-Server version: 8.0.43 MySQL Community Server - GPL
-
-Copyright (c) 2000, 2025, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> 
-
+Your MySQL connection id is ...
+...
+mysql>
 ```
 
 これでデータベース課題をこなす環境構築ができました！！
 
 
-4. 終了する場合（MySQLから出る、コンテナの停止・削除）
+4. 作業を終了する手順
+
+#### MySQL から出る
 ```bash
 exit
 ```
-結果が以下のようになると、MySQLの操作ができる環境から抜け出します。
+
 ```bash
 mysql> exit
 Bye
-bash-5.1# 
+bash-5.1#
 ```
-もう一度、`exit`と打つと、コンテナから抜け出します。
-```bash
-bash-5.1# exit
-exit
-```
-そのあと、Dockerのコンテナを停止するコマンドを打ちます。
+
+
+さらにもう一度 `exit` でコンテナからも抜け出せます。
+
+コンテナの停止
 ```bash
 docker compose down
 ```
-以下のようになればコンテナの停止になります。
+![20141121_ubuntu_ter_1-546x349](https://github.com/user-attachments/assets/398c9e8a-7280-466c-bdbb-4bb0eb8d53d1)
+
 ```bash
-[+] Running 2/2
- ✔ Container mysql              Removed                                    2.3s 
- ✔ Network db-training_default  Removed    
+
+[+] Running 1/1
+ ✔ Container mysql              Removed 
+ ✔ Network db-training_default Removed
 ```
 
-作業が終わりましたら、コンテナの停止・削除もお忘れなく。コンテナを立ち上げたままにするとPCが重くなります。
+## これで完了！
+
+これで、MySQL に接続してデータベースの操作ができる状態になりました。  
+次回からは以下の流れで作業開始できます：
+
+1. `cd db-training`
+2. `docker compose up -d` で起動
+3. `docker exec -it mysql bash` で MySQL に入る
+4. 作業後は `exit` → `exit` → `docker compose down`
+
+> ⚠ コンテナを放置するとPCに負荷がかかるので、使い終わったら忘れずに停止してください。
