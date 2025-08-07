@@ -23,9 +23,9 @@ git clone git@github.com:pygmalin-info/docker-php-env.git
 <img width="718" height="115" alt="スクリーンショット 2025-08-06 20 30 29" src="https://github.com/user-attachments/assets/83bc6e9e-be62-4469-80e8-4b953ca0c1b6" />
 
 
-3. デスクトップにあるdocker-php-envリポジトリのphpディレクトリに移動する
+3. デスクトップにあるdocker-php-envリポジトリに移動する
 ```bash
-cd docker-php-env/php
+cd docker-php-env
 ```
 
 4. Dockerのコンテナを立ち上げる
@@ -54,4 +54,5 @@ mysql -u root -p
 
 
 9. 下記のように表示されていればOKです。
-<img width="1289" height="143" alt="スクリーンショット 2025-08-06 20 22 37" src="https://github.com/user-attachments/assets/7aac87c2-8b66-4091-b4b0-f7dd46cb6126" />
+<img width="601" height="382" alt="スクリーンショット 2025-08-07 11 53 19" src="https://github.com/user-attachments/assets/e7d9f199-7f6e-4e5a-88e3-dd49c551f69d" />
+
